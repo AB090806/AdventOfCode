@@ -13,10 +13,10 @@ for i in range(len(file)):
 
     found1 = False
     for m in range(len(keyElement)):
-        if keyElement[m].isdigit() == True:
-            keyNumbers.append(keyElement[m])
-            found1 = True
-            break
+            if keyElement[m].isdigit() == True:
+                keyNumbers.append(keyElement[m])
+                found1 = True
+                break
 
     reversed = reverseList(keyElement)
 

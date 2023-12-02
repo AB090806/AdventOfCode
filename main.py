@@ -1,5 +1,5 @@
 file = (((open('puzzleInput.txt', 'r')).read()).strip('\n')).splitlines()
-numberWords = ["one","two","three","four","five","six","seven","eight","nine"]
+numberWords = [["z","e","r","o"],["o","n","e"],["t","w","o"],["t","h","r","e","e"],["f","o","u","r"],["f","i","v","e"],["s","i","x"],["s","e","v","e","n"],["e","i","g","h","t"],["n","i","n","e"]]
 
 def reverseList(a):
     newList = a[::-1]
@@ -9,19 +9,18 @@ keyNumbers = []
 
 for i in range(len(file)):
     keyElement = []
-    for k in range(len(file[i])):
-        keyElement.append((file[i][k]))
-
-    found1 = False
-    for m in range(len(keyElement)):
-        for n in range(len(numberWords)):
-            if numberWords[n] in keyElement[m]:
-                keyNumbers.append(j+1)
-                break
-            elif keyElement[m].isdigit() == True:
-                keyNumbers.append(keyElement[m])
-                found1 = True
-                break
+    keyDigits = []
+    for j in range(len(file[i])):
+        keyElement.append((file[i][j]))
+    for k in range(len(numberWords)):
+        for l in range(len(numberWords[k])):
+            if 
+        else:
+            for l in range(len(keyElement)):
+                if keyElement[l].isdigit() == True:
+                    keyNumbers.append(keyElement[l])
+                    break
+            
 
     reversed = reverseList(keyElement)
 
