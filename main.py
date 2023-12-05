@@ -1,5 +1,5 @@
-file = (((open('puzzleInput.txt', 'r')).read()).strip('\n')).splitlines()
-numberWords = [["z","e","r","o"],["o","n","e"],["t","w","o"],["t","h","r","e","e"],["f","o","u","r"],["f","i","v","e"],["s","i","x"],["s","e","v","e","n"],["e","i","g","h","t"],["n","i","n","e"]]
+file = (((open("puzzleInput.txt", "r")).read()).strip("\n")).splitlines()
+numberWords = ["zero","one","two","three","four","five","six","seven","eight","nine"]
 
 def reverseList(a):
     newList = a[::-1]
@@ -8,33 +8,44 @@ def reverseList(a):
 keyNumbers = []
 
 for i in range(len(file)):
-    keyElement = []
+    keyElement = file[i]
+    print(keyElement)
     keyDigits = []
-    for j in range(len(file[i])):
-        keyElement.append((file[i][j]))
+    for j in range(len(keyElement)):
+        keyDigits.append((keyElement[j]))
     for k in range(len(numberWords)):
-        for l in range(len(numberWords[k])):
-            if 
-        else:
-            for l in range(len(keyElement)):
-                if keyElement[l].isdigit() == True:
-                    keyNumbers.append(keyElement[l])
-                    break
-            
-
-    reversed = reverseList(keyElement)
-
-    found2 = False
-    for o in range(len(reversed)):
-        for p in range(len(numberWords)):
-            if reversed[o].isdigit() == True:
-                keyNumbers.append(reversed[o])
+        first = keyElement.find(numberWords[k])
+        found1 = False
+        for m in range(len(keyDigits)):
+            digit = keyDigits[m].isdigit()
+            if digit == True and m<first:
+                keyNumbers.append(str(keyDigits[m]))
+                found1 = True
+                break
+            elif first != -1 and digit == False :
+                keyNumbers.append(str(k))
+                found1 = True
+                break
+        if found1 == True:
+            break
+    reversed = reverseList(keyDigits)
+    for n in range(len(numberWords)):
+        keyElement = keyElement[::-1]
+        second = keyElement.find(numberWords[n])
+        found2 = False
+        for o in range(len(reversed)):
+            digit = reversed[o].isdigit()
+            if digit == True and o>second:
+                keyNumbers.append(str(reversed[o]))
                 found2 = True
                 break
-            elif numberWords[p] in keyElement:
-                keyNumbers.append(p+1)
+            elif second != -1 and digit == False:
+                keyNumbers.append(str(n))
+                found2 = True
                 break
-
+        if found2 == True:
+            break
+              
 print(keyNumbers)
 
 keyConcatenatedNumbers = []
